@@ -25,18 +25,6 @@ async function searchShows(query) {
 		console.log(`Get Shows API returned an error: ${error}`);
 		alert('No shows found for given search query.');
 	}
-
-	const showsList = [];
-	for (let item of res.data) {
-		let image = '';
-		if (item.show.image) image = item.show.image.original;
-		showsList.push({
-			id: item.show.id,
-			name: item.show.name,
-			summary: item.show.summary,
-			image
-		});
-	}
 	return returnShowsList(res.data);
 }
 
